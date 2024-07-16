@@ -1,0 +1,83 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    struct Node* left;
+    struct Node* right;
+};
+
+// Create a new node
+struct Node* newNode(int data) {
+    struct Node* node = new Node;
+    node->data = data;
+    node->left = nullptr;
+    node->right = nullptr;
+    return node;
+}
+
+// Build a BST from user input
+struct Node* buildBST() {
+    int n;
+    cout << "Enter the number of nodes: ";
+    cin >> n;
+
+    struct Node* root = nullptr;
+    for (int i = 0; i < n; ++i) {
+        int val;
+        cout << "Enter value for node " << i + 1 << ": ";
+        cin >> val;
+        if (root == nullptr)
+            root = newNode(val);
+        else {
+            struct Node* curr = root;
+            while (true) {
+                if (val < curr->data) {
+                    if (curr->left == nullptr) {
+                        curr->left = newNode(val);
+                        break;
+                    }
+                    curr = curr->left;
+                } else {
+                    if (curr->right == nullptr) {
+                        curr->right = newNode(val);
+                        break;
+                    }
+                    curr = curr->right;
+                }
+            }
+        }
+    }
+    return root;
+}
+
+// Check if two BSTs are identical
+int isIdentical(Node* root1, Node* root2) {
+    if (root1 == nullptr && root2 == nullptr)
+        return 1;
+    else if (root1 == nullptr || root2 == nullptr)
+        return 0;
+    else {
+        if (root1->data == root2->data &&
+            isIdentical(root1->left, root2->left) &&
+            isIdentical(root1->right, root2->right))
+            return 1;
+        else
+            return 0;
+    }
+}
+
+int main() {
+    cout << "Build the first BST:\n";
+    struct Node* root1 = buildBST();
+
+    cout << "\nBuild the second BST:\n";
+    struct Node* root2 = buildBST();
+
+    if (isIdentical(root1, root2))
+        cout << "\nBoth BSTs are identical";
+    else
+        cout << "\nBSTs are not identical";
+
+    return 0;
+}
