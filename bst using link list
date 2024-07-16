@@ -1,0 +1,42 @@
+#include <iostream>
+
+struct node
+{
+    int data;
+    struct node* leftchild;
+    struct node* rightchild;
+};
+
+struct node* insert(struct node* root, int data)
+{
+    if (root == nullptr)
+    {
+        struct node* newNode = new struct node;
+        newNode->data = data;
+        newNode->leftchild = nullptr;
+        newNode->rightchild = nullptr;
+        return newNode;
+    }
+    else if (data < root->data)
+    {
+        root->leftchild = insert(root->leftchild, data);
+    }
+    else
+    {
+        root->rightchild = insert(root->rightchild, data);
+    }
+    return root;
+}
+
+int main()
+{
+    // Example usage
+    struct node* root = nullptr;
+    root = insert(root, 10);
+    root = insert(root, 5);
+    root = insert(root, 15);
+
+    // Rest of your code...
+
+    return 0;
+}
