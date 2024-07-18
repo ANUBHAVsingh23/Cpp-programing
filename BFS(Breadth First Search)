@@ -1,0 +1,50 @@
+#include <iostream>
+#include <queue>
+#include <vector>
+using namespace std;
+
+int adjMatrix[4][4] = {0};  // Initialize the adjacency matrix with zeros
+int numVertices = 4; // Predefined number of vertices
+
+// Add edges
+void addEdge(int i, int j) {
+    adjMatrix[i][j] = 1;
+    adjMatrix[j][i] = 1;
+}
+
+// Perform Breadth First Search traversal
+void bfs(int startVertex) {
+    bool visited[numVertices] = {false};
+    queue<int> bfsQueue;
+    
+    visited[startVertex] = true;
+    bfsQueue.push(startVertex);
+
+    while (!bfsQueue.empty()) {
+        int currentVertex = bfsQueue.front();
+        cout << currentVertex << " ";
+        bfsQueue.pop();
+
+        for (int i = 0; i < numVertices; ++i) {
+            if (adjMatrix[currentVertex][i] == 1 && !visited[i]) {
+                visited[i] = true;
+                bfsQueue.push(i);
+            }
+        }
+    }
+}
+
+int main() {
+    addEdge(0, 1);
+    addEdge(0, 2);
+    addEdge(1, 2);
+    addEdge(2, 0);
+    addEdge(2, 3);
+
+    cout << "BFS traversal starting from vertex 0: ";
+    bfs(0);
+    cout << endl;
+    cout << "BFS traversal starting from vertex 3: ";  // Corrected the comment
+    bfs(3);
+    return 0;
+}
