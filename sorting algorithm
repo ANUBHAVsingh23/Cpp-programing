@@ -1,0 +1,20 @@
+A Sorting Algorithm is used to rearrange a given array or list of elements according to a comparison operator on the elements. The comparison operator is used to decide the new order of elements in the respective data structure.
+
+For Example: The below list of characters is sorted in increasing order of their ASCII values. That is, the character with a lesser ASCII value will be placed first than the character with a higher ASCII value.
+
+
+Characteristics of Sorting Algorithms:
+Time Complexity: Time complexity, a measure of how long it takes to run an algorithm, is used to categorize sorting algorithms. The worst-case, average-case, and best-case performance of a sorting algorithm can be used to quantify the time complexity of the process.
+Space Complexity: Sorting algorithms also have space complexity, which is the amount of memory required to execute the algorithm.
+Stability: A sorting algorithm is said to be stable if the relative order of equal elements is preserved after sorting. This is important in certain applications where the original order of equal elements must be maintained.
+In-Place Sorting: An in-place sorting algorithm is one that does not require additional memory to sort the data. This is important when the available memory is limited or when the data cannot be moved.
+Adaptivity: An adaptive sorting algorithm is one that takes advantage of pre-existing order in the data to improve performance.
+
+
+Applications of Sorting Algorithms:
+Searching Algorithms: Sorting is often a crucial step in search algorithms like binary search, Ternary Search, where the data needs to be sorted before searching for a specific element.
+Data management: Sorting data makes it easier to search, retrieve, and analyze.
+Database optimization: Sorting data in databases improves query performance.
+Machine learning: Sorting is used to prepare data for training machine learning models.
+Data Analysis: Sorting helps in identifying patterns, trends, and outliers in datasets. It plays a vital role in statistical analysis, financial modeling, and other data-driven fields.
+Operating Systems: Sorting algorithms are used in operating systems for tasks like task scheduling, memory management, and file system organization.
